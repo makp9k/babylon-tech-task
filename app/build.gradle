@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    defaultConfig {
+        applicationId "com.example.babylon.app"
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation deps.androidx.appcompat
+    implementation deps.okhttp.client
+
+    implementation deps.dagger.runtime
+    kapt deps.dagger.compiler
+
+    implementation project(':common-android')
+    implementation project(':posts-service-api')
+    implementation project(':posts-service-impl')
+}

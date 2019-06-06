@@ -1,0 +1,12 @@
+include ':app', ':common-android'
+
+includeModule 'post-detail-screen'
+includeModule 'posts-collection-screen'
+includeModule 'posts-service'
+
+def includeModule(moduleName) {
+    include ":${moduleName}-api"
+    project(":${moduleName}-api").projectDir = new File("$moduleName/api")
+    include ":${moduleName}-impl"
+    project(":${moduleName}-impl").projectDir = new File("$moduleName/impl")
+}

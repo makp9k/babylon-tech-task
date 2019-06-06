@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+dependencies {
+    implementation deps.okhttp.client
+    implementation deps.dagger.runtime
+
+    implementation project(':posts-service-api')
+}
