@@ -6,9 +6,14 @@ import androidx.fragment.app.Fragment
 import dagger.MapKey
 import dagger.Module
 import dagger.multibindings.Multibinds
+import javax.inject.Scope
 import kotlin.reflect.KClass
 
 interface ComponentDependencies
+
+@Scope
+@Retention(AnnotationRetention.SOURCE)
+annotation class ComponentScope
 
 inline fun <reified T : ComponentDependencies> Fragment.findComponentDependencies(): T {
     return findComponentDependenciesProvider()[T::class.java] as T

@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    libraryVariants.all {
+        it.generateBuildConfigProvider.configure {
+            it.enabled = false
+        }
+    }
+}
+
+dependencies {
+    implementation deps.kotlin_std_lib
+
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.lifecycle.viewmodel
+
+    implementation deps.rx.kotlin
+    implementation deps.rx.relay
+    implementation deps.rx.android
+
+    testImplementation deps.tests.junit
+    testImplementation deps.tests.mockito
+}

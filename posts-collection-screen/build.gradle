@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.constraint
+    implementation deps.androidx.recyclerview
+    implementation deps.androidx.material
+
+    implementation deps.glide
+    implementation deps.rx.binding
+
+    implementation deps.dagger.runtime
+    kapt deps.dagger.compiler
+
+    testImplementation deps.tests.junit
+    testImplementation deps.tests.assertj
+
+    implementation project(deps.project.common)
+    implementation project(deps.project.commonAndroid)
+
+    implementation project(deps.project.postsService.api)
+    testImplementation project(deps.project.postsService.test)
+
+    implementation project(deps.project.rxMvvm.core)
+    implementation project(deps.project.rxMvvm.controls)
+}

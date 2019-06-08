@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.material
+
+    implementation deps.rx.android
+    implementation deps.rx.relay
+    implementation deps.rx.binding
+
+    implementation project(deps.project.rxMvvm.core)
+}

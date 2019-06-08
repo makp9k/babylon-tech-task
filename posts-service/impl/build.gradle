@@ -2,8 +2,15 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 dependencies {
-    implementation deps.okhttp.client
-    implementation deps.dagger.runtime
+    api deps.okhttp.client
+    api deps.gson
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson_converter
+    implementation deps.retrofit.rx_adapter
 
-    implementation project(':posts-service-api')
+    implementation project(deps.project.common)
+    implementation project(deps.project.postsService.api)
+
+    testImplementation deps.tests.junit
+    testImplementation deps.tests.assertj
 }

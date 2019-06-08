@@ -4,4 +4,10 @@ apply plugin: 'kotlin-android'
 dependencies {
     implementation deps.androidx.appcompat
     implementation deps.dagger.runtime
+
+    implementation deps.rx.relay
+
+    implementation project(deps.project.common)
+    implementation project(deps.project.rxMvvm.core)
+    implementation project(deps.project.rxMvvm.controls)
 }
